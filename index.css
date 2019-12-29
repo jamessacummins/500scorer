@@ -1,3 +1,5 @@
+/* Sitewide formatting */
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -5,10 +7,25 @@ body {
 	color: #757575;
 	font-family: 'B612', sans-seriff;
 	font-weight: 300;
+	text-align: center;
 }
 b {
 	color: black;
 }
+
+.button {
+	box-shadow: 0 .1em .1em 0 rgba(0, 0, 0, 0.2), 0 .1em .1em 0 rgba(0, 0, 0, 0.19);
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.button:hover {
+	cursor: pointer;
+}
+
+/* Level 1 Content */
 
 .site-block {
 	display: grid;
@@ -16,20 +33,106 @@ b {
 	width: 100vw;
 	height: 100vh;
 }
-.bidinput-block {
-	background-color: #908090;
+.bidinput-l1-block {
+	background-color: #404040;
 	grid-column: 1/2;
 	grid-row: 1/2;
+
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
 .scoresheet-block {
+
 	background-color: white;
 	grid-column: 2/3;
 	grid-row: 1/2;
+
+
 	display:flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+
 }
+
+/* Level 2 Content */
+
+/* L2: Input Block & Content */
+
+.bidinput-l2-block {
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 90%;
+	height: 90%;
+}
+
+.bidbutton-block {
+	width: 90%;
+	margin: 2em auto 0em;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+/* L3: Input Block -- Player Button Row */
+
+.playerbuttons-block {
+	width: 90%;
+	margin:auto;
+	margin-top: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.playerbutton {
+	background-color: #A8BCFF;
+	color: white;
+	border-radius: .3em;
+	padding: 1em 1em;
+	margin: 0px 1em;
+}
+
+.pb-active {
+	box-shadow: 0 .1em .1em 0 #FDFFC1, 0 .1em .1em 0 #FDFFC1;
+	background-color: #FDFFC1;
+	color: #757575;
+}
+
+/* L3: Input Block -- Bid Buttons */
+
+.bidbutton {
+	font-size: 1.5em;
+	padding: .2em;
+	border-radius: .2em;
+}
+
+.bb-cant {
+	background-color: #757575;
+	font-color: #757575;
+}
+
+.bb-already {
+	background-color: #A8BCFF;
+	color: white;
+	font-size: 1em;
+}
+.bb-selected {
+	background-color: #FDFFC1;
+	color: #757575;
+}
+
+.hidden {
+	display: none;
+}
+
+/* L2: Commit Button Row */
+
+
+/* L2: Scorecard & Content */
 
 table {
 	color: #757575;
@@ -51,6 +154,8 @@ th {
 	font-weight: 400;
 }
 
+/* L3: Scorecard -- Table Cell Formatting */
+
 .contractwon-cell {
 	background-color: #87E08E;
 	color: white;
@@ -71,5 +176,6 @@ th {
 	margin-bottom: 40px;
 	text-align: center;
 }
+
 
 
