@@ -5,4 +5,9 @@ body {
 	padding: 0px;
 	font-size: 16px;
 	color: #121212;
+
+	height: 750px;
+	width:326px;
+	border: lightseagreen 1px solid;
 }
+

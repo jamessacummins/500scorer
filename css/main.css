@@ -1,0 +1,127 @@
+/* Sitewide formatting */
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600&display=swap');
+
+:root{
+	--main-colour: #248277;
+	--padding-1: 4px;
+	--padding-2: 8px;
+	--padding-3: 16px;
+	--padding-4: 32px;
+}
+
+*{
+	font-family: 'Mukta', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	font-size: 16px;
+	color: #222222;
+}
+
+body {
+	height: 750px;
+	width:326px;
+	border: var(--main-colour) 1px solid;
+
+}
+
+#head-container{
+	width:100%;
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding:var(--padding-3) 0;
+}
+
+#title{
+	font-weight:600;
+	color:#121212;
+	font-size:20px;
+	margin-left:var(--padding-3);
+}
+
+#user{
+	margin-left:auto;
+	margin-right:var(--padding-3);
+	content:url("../img/users.svg");
+	height:32px;
+}
+
+.question{
+	width:100%;
+	text-align: center;
+	margin-top:var(--padding-3);
+
+	font-weight:600;
+}
+
+#score-box{
+	width:calc(100% - calc(var(--padding-3) * 2));
+	margin: var(--padding-3) var(--padding-3) 0;
+	border: 2px solid var(--main-colour);
+	display:flex;
+}
+.score-team-container{
+	width:50%;
+	border: 2px solid var(--main-colour);
+	display:flex;
+}
+.score-team-container > * {
+	width:50%;
+	text-align:center;
+}
+
+.score-team-name{
+	background-color: var(--main-colour);
+	color:white;
+}
+
+.score-team-number{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#winner-container{
+	width:calc(100% - calc(var(--padding-3) * 2));
+	margin: var(--padding-3) var(--padding-3) 0;
+
+	display:flex;
+	gap:var(--padding-3);
+}
+
+#winner-container > *{
+	width:calc(50% - calc(var(--padding-3) / 2 ));
+}
+
+.button{
+	border: var(--main-colour) 1px solid;
+	border-radius:var(--padding-1);
+	text-align:center;
+	
+	user-select: none;
+	cursor: pointer;
+	padding: var(--padding-1) 0;
+}
+
+.button-active{
+	color:white;
+	background-color: var(--main-colour);
+}
+
+#bids-container{
+	width: calc(100% - (var(--padding-3) * 2));
+	margin: var(--padding-3) var(--padding-3) 0;
+	display:flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	gap:var(--padding-2);
+	justify-content: center;
+	align-items: center;
+}
+
+.bid-container{
+	width:calc((100% - (var(--padding-2) * 4)) / 5);
+	text-align: center;
+}
