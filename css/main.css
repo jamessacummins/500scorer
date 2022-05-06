@@ -99,13 +99,13 @@ body {
 	border: var(--main-colour) 1px solid;
 	border-radius:var(--padding-1);
 	text-align:center;
-	
 	user-select: none;
 	cursor: pointer;
+
 	padding: var(--padding-1) 0;
 }
 
-.button-active{
+.button.active{
 	color:white;
 	background-color: var(--main-colour);
 }
@@ -123,5 +123,62 @@ body {
 
 .bid-container{
 	width:calc((100% - (var(--padding-2) * 4)) / 5);
+
+	border-radius: 4px;
+
+	user-select: none;
+	cursor: pointer;
+}
+.bid-container.active{
+	background-color: var(--main-colour);
+}
+.bid-container.active *{
+	color:white;
+}
+
+.bid{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--padding-1);
+}
+
+.bid-suit{
+	width:30%;
+}
+
+.clubs-bid{
+	content:url("../icons/club.svg");
+}
+.spades-bid{
+	content:url("../icons/spade.svg");
+}
+.diamonds-bid{
+	content:url("../icons/diamond.svg");
+}
+.hearts-bid{
+	content:url("../icons/heart.svg");
+}
+.no-trumps-bid{
+	content:url("../icons/joker.svg");
+}
+.misere-bid{
+	content:none;
+}
+.bid-score{
 	text-align: center;
+	font-size:10px;
+}
+
+#confirm-button{
+	width:50%;
+	margin:var(--padding-3) auto 0;
+
+	
+	background-color: #ddd;
+}
+
+#confirm-button.active{
+	background-color: var(--main-colour);
+	color:white;
 }
