@@ -25,7 +25,7 @@
 
 		<script id="choose-bid-template" type="text/x-handlebars-template">
             <div class="question">
-                {{ordinalRound}} round of bidding
+                1st round of bidding
             </div>
             <div id="score-box">
                 {{#each teams}}
@@ -44,7 +44,7 @@
             </div>
             <div id="winner-container">
                 {{#each teams}}
-                <div class="button winner-button" data-id="{{@index}}" onclick="updateActiveWinner({{@index}})">
+                <div class="button winner-button" data-id="{{id}}" onclick="updateActiveWinner({{id}})">
                     {{player1}} & {{player2}}
                 </div>
                 {{/each}}
@@ -54,41 +54,14 @@
             </div>
             <div id="bids-container">
                 {{#each bids}}
-                <div class="bid-container" data-id="{{@index}}" onclick="updateActiveBid({{@index}})">
+                <div class="bid-container" data-id="{{id}}" onclick="updateActiveBid({{id}})">
                     <div class="bid">{{bid}}<img src="" alt="" class="bid-suit {{suit}}-bid"></div>
                     <div class="bid-score">{{bidScore}}</div>
                 </div>
                 {{/each}}
             </div>
     
-            <div id="confirm-button" class="button" onclick="handleConfirm()">
-                Confirm
-            </div>
-		</script>
-
-		<script id="enter-tricks-template" type="text/x-handlebars-template">
-			<div class="question">
-                {{ordinalRound}} round of bidding
-            </div>
-            <div id="score-box">
-                {{#each teams}}
-                <div class="score-team-container">
-                    <div class="score-team-name">
-                        {{player1}} & {{player2}}
-                    </div>
-                    <div class="score-team-number">
-                        {{currentScore}}
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-			{{#each teams}}
-			<div class="question">
-				How many tricks did {{player1}} and {{player2}} get?
-			</div>
-			<input class="trick-input" type="number" onkeydown="validateNumbers()" data-id="{{@index}}">
-			{{/each}}
-			<div class="button" onclick="updateTricks()">
+            <div id="confirm-button" class="button">
                 Confirm
             </div>
 		</script>
