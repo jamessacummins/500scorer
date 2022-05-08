@@ -12,7 +12,7 @@
 	</head>
 
 	<body>
-
+        <div id="main-container">
 		<div id="head-container">
 			<div id="title">
 				The 500 Scorer
@@ -31,7 +31,7 @@
                 {{#each currentGame.teams}}
                 <div class="score-team-container">
                     <div class="score-team-name">
-                        {{player1}} & {{player2}}
+                        {{player1}} &<br> {{player2}}
                     </div>
                     <div class="score-team-number">
                         {{score}}
@@ -60,7 +60,7 @@
                 </div>
                 {{/each}}
             </div>
-    
+            
             <div id="confirm-button" class="button" onclick="handleConfirm()">
                 Confirm
             </div>
@@ -74,7 +74,7 @@
                 {{#each currentGame.teams}}
                 <div class="score-team-container">
                     <div class="score-team-name">
-                        {{player1}} & {{player2}}
+                        {{player1}} &<br> {{player2}}
                     </div>
                     <div class="score-team-number">
                         {{score}}
@@ -86,15 +86,15 @@
 			<div class="question">
 				How many tricks did {{player1}} and {{player2}} get?
 			</div>
-			<input class="trick-input" type="number" onkeydown="validateNumbers()" data-id="{{@index}}">
+			<input class="trick-input" type="number" onkeydown="validateIsNumber()" oninput="updateTricks()" data-id="{{@index}}">
 			{{/each}}
-			<div class="button" onclick="recordGame()">
+			<div class="button" id="record-game-button" onclick="recordGame()">
                 Record Game
             </div>
 		</script>
 
 		<script src="./js/main.js" ></script>
-
+        </div>
 	</body>
 
 	</html>

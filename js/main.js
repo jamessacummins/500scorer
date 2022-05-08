@@ -157,6 +157,15 @@ var tempData = {
     },
   ]
 };
+
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
+Handlebars.registerHelper('ifNotEquals', function(arg1, arg2, options) {
+  return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+});
+
 var data;
 
 window.onload = () => {
@@ -252,7 +261,7 @@ function handleConfirm() {
     updatePage("enter-tricks-template");
   }
 }
-function validateNumbers() {
+function validateIsNumber() {
   var e = window.event;  // get event object
   var key = e.keyCode || e.which; // get key cross-browser
 
@@ -260,17 +269,24 @@ function validateNumbers() {
     //Prevent default action, which is inserting character
     if (e.preventDefault) e.preventDefault(); //normal browsers
     e.returnValue = false; //IE
-  } else {
-    updateTricks();
-  }
+  } 
 }
 
 function updateTricks() {
   var trickInputs = Array.from(document.querySelectorAll(".trick-input"));
   for (input of trickInputs) {
-    if (!isNaN(input.valueAsNumber)) data.currentGame.teams[input.dataset.id].currentTricks = input.valueAsNumber;
-    else data.currentGame.teams[input.dataset.id].currentTricks = 0;
+    if (!isNaN(input.valueAsNumber)) { data.currentGame.teams[input.dataset.id].currentTricks = input.valueAsNumber; }
+    else { data.currentGame.teams[input.dataset.id].currentTricks = 0; }
   }
+  updateRecordGameButton();
+}
+function updateRecordGameButton(){
+    var recordGameButton = document.querySelector("#record-game-button");
+    if (tricksAddToTen()) {
+      recordGameButton.classList.add("active");
+    } else {
+      recordGameButton.classList.remove("active");
+    }
 }
 function makeHand() {
   var hand = {};
@@ -320,21 +336,21 @@ function newHand() {
   data.activeWinner = null;
   updatePage("choose-bid-template");
 }
-function goBack1Hand(){
-  goToHand(data.currentGame.hands.length-1);
+function goBack1Hand() {
+  goToHand(data.currentGame.hands.length - 1);
 }
-function goToHand(handIndex){
+function goToHand(handIndex) {
   data.currentHand = handIndex;
   data.currentRound = handIndex + 1;
   data.ordinalRound = ordinalSuffixOf(data.currentRound);
   data.activeBid = null;
   data.activeWinner = null;
-  for(team of data.currentGame.teams){
+  for (team of data.currentGame.teams) {
     var id = data.currentGame.teams.indexOf(team);
     team.score = data.currentGame.hands[data.currentHand].teams[id].startingScore;
     team.currentTricks = 0;
   }
-  data.currentGame.hands = data.currentGame.hands.splice(handIndex,data.currentGame.hands.length - handIndex - 1);
+  data.currentGame.hands = data.currentGame.hands.splice(handIndex, data.currentGame.hands.length - handIndex - 1);
   updatePage("choose-bid-template");
 }
 

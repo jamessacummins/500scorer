@@ -19,10 +19,15 @@
 }
 
 body {
-	height: 750px;
-	width:326px;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
 	border: var(--main-colour) 1px solid;
+}
 
+#main-container{
+	max-width:450px;
+	padding-bottom:var(--padding-4);
 }
 
 #page{
@@ -108,13 +113,17 @@ body {
 	text-align:center;
 	user-select: none;
 	cursor: pointer;
-
-	padding: var(--padding-1) 0;
+	margin-top:var(--padding-3);
+	padding: var(--padding-1) var(--padding-3);
 }
 
 .button.active{
 	color:white;
 	background-color: var(--main-colour);
+}
+
+.winner-button{
+	padding: var(--padding-1);
 }
 
 #bids-container{
@@ -195,4 +204,15 @@ input{
 	margin: var(--padding-3) auto;
 	padding:var(--padding-1) var(--padding-2);
 	text-align: center;
+}
+
+#record-game-button{
+	margin-top:var(--padding-3);
+	background-color: #ddd;
+	padding: var(--padding-1) var(--padding-2);
+}
+
+#record-game-button.active{
+	background-color: var(--main-colour);
+	color:white;
 }
