@@ -28,13 +28,13 @@
                 {{ordinalRound}} round of bidding
             </div>
             <div id="score-box">
-                {{#each teams}}
+                {{#each currentGame.teams}}
                 <div class="score-team-container">
                     <div class="score-team-name">
                         {{player1}} & {{player2}}
                     </div>
                     <div class="score-team-number">
-                        {{currentScore}}
+                        {{score}}
                     </div>
                 </div>
                 {{/each}}
@@ -43,7 +43,7 @@
                 Who won the bid?
             </div>
             <div id="winner-container">
-                {{#each teams}}
+                {{#each currentGame.teams}}
                 <div class="button winner-button" data-id="{{@index}}" onclick="updateActiveWinner({{@index}})">
                     {{player1}} & {{player2}}
                 </div>
@@ -55,8 +55,8 @@
             <div id="bids-container">
                 {{#each bids}}
                 <div class="bid-container" data-id="{{@index}}" onclick="updateActiveBid({{@index}})">
-                    <div class="bid">{{bid}}<img src="" alt="" class="bid-suit {{suit}}-bid"></div>
-                    <div class="bid-score">{{bidScore}}</div>
+                    <div class="bid">{{trickThreshold}}<img src="" alt="" class="bid-suit {{suit}}-bid"></div>
+                    <div class="bid-score">{{value}}</div>
                 </div>
                 {{/each}}
             </div>
@@ -71,29 +71,29 @@
                 {{ordinalRound}} round of bidding
             </div>
             <div id="score-box">
-                {{#each teams}}
+                {{#each currentGame.teams}}
                 <div class="score-team-container">
                     <div class="score-team-name">
                         {{player1}} & {{player2}}
                     </div>
                     <div class="score-team-number">
-                        {{currentScore}}
+                        {{score}}
                     </div>
                 </div>
                 {{/each}}
             </div>
-			{{#each teams}}
+			{{#each currentGame.teams}}
 			<div class="question">
 				How many tricks did {{player1}} and {{player2}} get?
 			</div>
 			<input class="trick-input" type="number" onkeydown="validateNumbers()" data-id="{{@index}}">
 			{{/each}}
-			<div class="button" onclick="updateTricks()">
-                Confirm
+			<div class="button" onclick="recordGame()">
+                Record Game
             </div>
 		</script>
 
-		<script src="./js/main.js"></script>
+		<script src="./js/main.js" ></script>
 
 	</body>
 
