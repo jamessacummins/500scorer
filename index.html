@@ -1,41 +1,49 @@
 <DOCTYPE! html>
-	<html>
+    <html>
 
-	<head>
-		<title> 500 </title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="./css/main.css">
-		<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-	</head>
+    <head>
+        <title> 500 </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    </head>
 
-	<body>
+    <body>
         <div id="main-container">
-		<div id="head-container">
-			<div id="title">
-				The 500 Scorer
-			</div>
-			<img id="user"></img>
-		</div>
-        <div id="page">
+            <div id="head-container">
+                <div id="title">
+                    The 500 Scorer
+                </div>
+                <img id="user"></img>
+            </div>
+            <div id="page">
 
-        </div>
+            </div>
 
-		<script id="choose-bid-template" type="text/x-handlebars-template">
+            <script id="choose-bid-template" type="text/x-handlebars-template">
             <div class="question">
                 {{ordinalRound}} round of bidding
             </div>
             <div id="score-box">
+                <div id="score-bid-title">Hand</div>
                 {{#each currentGame.teams}}
-                <div class="score-team-container">
-                    <div class="score-team-name">
-                        {{player1}} &<br> {{player2}}
-                    </div>
-                    <div class="score-team-number">
-                        {{score}}
-                    </div>
+                <div class="score-team-name">
+                    {{player1}} & {{player2}}
+                </div>
+                {{/each}}
+                {{#each currentGame.hands}}
+                    <div class="full-score score-hand">{{ordinalRound}}</div>
+                    {{#each teams}}
+                    <div class="score-team-number">{{startingScore}}</div>
+                    {{/each}}
+                {{/each}}
+                <div class="score-hand">{{ordinalRound}}</div>
+                {{#each currentGame.teams}}
+                <div class="score-team-number">
+                    {{score}}
                 </div>
                 {{/each}}
             </div>
@@ -55,7 +63,12 @@
             <div id="bids-container">
                 {{#each bids}}
                 <div class="bid-container" data-id="{{@index}}" onclick="updateActiveBid({{@index}})">
-                    <div class="bid">{{trickThreshold}}<img src="" alt="" class="bid-suit {{suit}}-bid"></div>
+                    <div class="bid">
+                        {{trickThreshold}}
+                        {{#ifNotEquals suit "misere"}}
+                        <img src="" alt="" class="bid-suit {{suit}}-bid">
+                        {{/ifNotEquals}}
+                    </div>
                     <div class="bid-score">{{value}}</div>
                 </div>
                 {{/each}}
@@ -66,19 +79,28 @@
             </div>
 		</script>
 
-		<script id="enter-tricks-template" type="text/x-handlebars-template">
+            <script id="enter-tricks-template" type="text/x-handlebars-template">
+                
 			<div class="question">
                 {{ordinalRound}} round of bidding
             </div>
             <div id="score-box">
+                <div id="score-bid-title">Hand</div>
                 {{#each currentGame.teams}}
-                <div class="score-team-container">
-                    <div class="score-team-name">
-                        {{player1}} &<br> {{player2}}
-                    </div>
-                    <div class="score-team-number">
-                        {{score}}
-                    </div>
+                <div class="score-team-name">
+                    {{player1}} & {{player2}}
+                </div>
+                {{/each}}
+                {{#each currentGame.hands}}
+                    <div class="full-score score-hand">{{ordinalRound}}</div>
+                    {{#each teams}}
+                    <div class="score-team-number">{{startingScore}}</div>
+                    {{/each}}
+                {{/each}}
+                <div class="score-hand">{{ordinalRound}}</div>
+                {{#each currentGame.teams}}
+                <div class="score-team-number">
+                    {{score}}
                 </div>
                 {{/each}}
             </div>
@@ -93,8 +115,8 @@
             </div>
 		</script>
 
-		<script src="./js/main.js" ></script>
+            <script src="./js/main.js"></script>
         </div>
-	</body>
+    </body>
 
-	</html>
+    </html>

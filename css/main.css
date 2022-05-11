@@ -22,7 +22,6 @@ body {
 	display:flex;
 	flex-direction: column;
 	align-items: center;
-	border: var(--main-colour) 1px solid;
 }
 
 #main-container{
@@ -72,27 +71,28 @@ body {
 	width:calc(100% - calc(var(--padding-3) * 2));
 	margin: var(--padding-3) var(--padding-3) 0;
 	border: 2px solid var(--main-colour);
-	display:flex;
+	display:grid;
+	grid-template-columns: 1fr 3fr 3fr;
 }
-.score-team-container{
-	width:50%;
-	border: 2px solid var(--main-colour);
-	display:flex;
-}
-.score-team-container > * {
-	width:50%;
-	text-align:center;
+#score-bid-title{
+	background-color: var(--main-colour);
+	color:white;
+	text-align: center;
 }
 
 .score-team-name{
 	background-color: var(--main-colour);
 	color:white;
+	text-align: center;
 }
 
 .score-team-number{
 	display:flex;
 	justify-content: center;
 	align-items: center;
+}
+#score-box *{
+	text-align: center;
 }
 
 #winner-container{
@@ -113,7 +113,6 @@ body {
 	text-align:center;
 	user-select: none;
 	cursor: pointer;
-	margin-top:var(--padding-3);
 	padding: var(--padding-1) var(--padding-3);
 }
 
@@ -160,7 +159,7 @@ body {
 }
 
 .bid-suit{
-	width:30%;
+	width:20%;
 }
 
 .clubs-bid{
@@ -216,3 +215,4 @@ input{
 	background-color: var(--main-colour);
 	color:white;
 }
+

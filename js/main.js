@@ -298,6 +298,7 @@ function makeHand() {
   hand.wasWon = data.currentGame.teams[data.activeWinner].currentTricks >= bid.trickThreshold;
   hand.teams = [];
   hand.value = bid.value;
+  hand.ordinalRound = data.ordinalRound;
   for (team of data.currentGame.teams) {
     id = data.currentGame.teams.indexOf(team);
     console.log(id);
