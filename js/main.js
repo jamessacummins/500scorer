@@ -1,162 +1,160 @@
-var tempData = {
+var newData = {
   "currentPage": "choose-bid-template",
   "currentRound": 1,
-  currentHand: 0,
-  currentGame: {
-    gameID: null,
-    "teams": [
-      {
-        player1: "James",
-        player2: "Harper",
-        score: 0,
-        currentTricks: 0,
-      },
-      {
-        player1: "Will",
-        player2: "Catie",
-        score: 0,
-        currentTricks: 0,
-      }
-    ],
-    "hands": [
-    ],
+  "currentHand": 0,
+  "currentGame": {
+      "gameID": null,
+      "teams": [
+          {
+        "player1": "James",
+        "player2": "Harper",
+        "score": 0,
+        "currentTricks": 0
+          },
+          {
+        "player1": "Will",
+        "player2": "Catie",
+        "score": 0,
+        "currentTricks": 0
+          }
+      ],
+      "hands": []
   },
   "ordinalRound": "",
-  pastGames: [
-  ],
+  "pastGames": [],
   "bids": [
-    {
-      trickThreshold: 6,
-      suit: "spades",
-      value: 40
-    },
-    {
-      trickThreshold: 6,
-      suit: "clubs",
-      value: 60
-    },
-    {
-      trickThreshold: 6,
-      suit: "diamonds",
-      value: 80
-    },
-    {
-      trickThreshold: 6,
-      suit: "hearts",
-      value: 100
-    },
-    {
-      trickThreshold: 6,
-      suit: "no-trumps",
-      value: 120
-    },
-    {
-      trickThreshold: 7,
-      suit: "spades",
-      value: 140
-    },
-    {
-      trickThreshold: 7,
-      suit: "clubs",
-      value: 160
-    },
-    {
-      trickThreshold: 7,
-      suit: "diamonds",
-      value: 180
-    },
-    {
-      trickThreshold: 7,
-      suit: "hearts",
-      value: 200
-    },
-    {
-      trickThreshold: 7,
-      suit: "no-trumps",
-      value: 220
-    },
-    {
-      trickThreshold: 8,
-      suit: "spades",
-      value: 240
-    },
-    {
-      trickThreshold: 8,
-      suit: "clubs",
-      value: 260
-    },
-    {
-      trickThreshold: 8,
-      suit: "diamonds",
-      value: 280
-    },
-    {
-      trickThreshold: 8,
-      suit: "hearts",
-      value: 300
-    },
-    {
-      trickThreshold: 8,
-      suit: "no-trumps",
-      value: 320
-    },
-    {
-      trickThreshold: 9,
-      suit: "spades",
-      value: 340
-    },
-    {
-      trickThreshold: 9,
-      suit: "clubs",
-      value: 360
-    },
-    {
-      trickThreshold: 9,
-      suit: "diamonds",
-      value: 380
-    },
-    {
-      trickThreshold: 9,
-      suit: "hearts",
-      value: 400
-    },
-    {
-      trickThreshold: 9,
-      suit: "no-trumps",
-      value: 420
-    },
-    {
-      trickThreshold: 10,
-      suit: "spades",
-      value: 440
-    },
-    {
-      trickThreshold: 10,
-      suit: "clubs",
-      value: 460
-    },
-    {
-      trickThreshold: 10,
-      suit: "diamonds",
-      value: 480
-    },
-    {
-      trickThreshold: 10,
-      suit: "hearts",
-      value: 500
-    },
-    {
-      trickThreshold: 10,
-      suit: "no-trumps",
-      value: 520
-    },
-    {
-      trickThreshold: "Misere",
-      suit: "misere",
-      value: 250
-    },
+      {
+      "trickThreshold": 6,
+      "suit": "spades",
+      "value": 40
+      },
+      {
+      "trickThreshold": 6,
+      "suit": "clubs",
+      "value": 60
+      },
+      {
+      "trickThreshold": 6,
+      "suit": "diamonds",
+      "value": 80
+      },
+      {
+      "trickThreshold": 6,
+      "suit": "hearts",
+      "value": 100
+      },
+      {
+      "trickThreshold": 6,
+      "suit": "no-trumps",
+      "value": 120
+      },
+      {
+      "trickThreshold": 7,
+      "suit": "spades",
+      "value": 140
+      },
+      {
+      "trickThreshold": 7,
+      "suit": "clubs",
+      "value": 160
+      },
+      {
+      "trickThreshold": 7,
+      "suit": "diamonds",
+      "value": 180
+      },
+      {
+      "trickThreshold": 7,
+      "suit": "hearts",
+      "value": 200
+      },
+      {
+      "trickThreshold": 7,
+      "suit": "no-trumps",
+      "value": 220
+      },
+      {
+      "trickThreshold": 8,
+      "suit": "spades",
+      "value": 240
+      },
+      {
+      "trickThreshold": 8,
+      "suit": "clubs",
+      "value": 260
+      },
+      {
+      "trickThreshold": 8,
+      "suit": "diamonds",
+      "value": 280
+      },
+      {
+      "trickThreshold": 8,
+      "suit": "hearts",
+      "value": 300
+      },
+      {
+      "trickThreshold": 8,
+      "suit": "no-trumps",
+      "value": 320
+      },
+      {
+      "trickThreshold": 9,
+      "suit": "spades",
+      "value": 340
+      },
+      {
+      "trickThreshold": 9,
+      "suit": "clubs",
+      "value": 360
+      },
+      {
+      "trickThreshold": 9,
+      "suit": "diamonds",
+      "value": 380
+      },
+      {
+      "trickThreshold": 9,
+      "suit": "hearts",
+      "value": 400
+      },
+      {
+      "trickThreshold": 9,
+      "suit": "no-trumps",
+      "value": 420
+      },
+      {
+      "trickThreshold": 10,
+      "suit": "spades",
+      "value": 440
+      },
+      {
+      "trickThreshold": 10,
+      "suit": "clubs",
+      "value": 460
+      },
+      {
+      "trickThreshold": 10,
+      "suit": "diamonds",
+      "value": 480
+      },
+      {
+      "trickThreshold": 10,
+      "suit": "hearts",
+      "value": 500
+      },
+      {
+      "trickThreshold": 10,
+      "suit": "no-trumps",
+      "value": 520
+      },
+      {
+      "trickThreshold": "Misere",
+      "suit": "misere",
+      "value": 250
+      }
   ]
-};
+}
 
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
@@ -169,8 +167,8 @@ Handlebars.registerHelper('ifNotEquals', function(arg1, arg2, options) {
 var data;
 
 window.onload = () => {
-  if (localStorage.data != null) data = JSON.parse(localStorage.data);
-  else data = tempData;
+  if (localStorage.data == null) data = newData;
+  else data = JSON.parse(localStorage.data);
   run();
 }
 
@@ -184,7 +182,7 @@ function saveState() {
 }
 
 function refreshState() {
-  data = tempData;
+  data = newData;
   saveState();
   location.reload();
 }
@@ -213,6 +211,17 @@ function insertHTML(sourceQuery, targetQuery, context) {
   var finalContent = template(context);
   document.querySelector(targetQuery).innerHTML += finalContent;
 };
+
+var hasMenu = false;
+function toggleMenu(){
+  if(hasMenu){
+    document.querySelector("#menu").remove();
+  } else {
+    insertHTML("#menu-template","#page",this);
+  }
+  hasMenu = !hasMenu;
+};
+
 function updatePage(page) {
   data.currentPage = page;
   loadPage("#" + page);
@@ -351,7 +360,7 @@ function goToHand(handIndex) {
     team.score = data.currentGame.hands[data.currentHand].teams[id].startingScore;
     team.currentTricks = 0;
   }
-  data.currentGame.hands = data.currentGame.hands.splice(handIndex, data.currentGame.hands.length - handIndex - 1);
+  data.currentGame.hands.splice(handIndex);
   updatePage("choose-bid-template");
 }
 
@@ -366,5 +375,23 @@ function recordGame() {
     newHand();
   } else {
     window.alert("Please make sure there are ten tricks across all teams.");
+  }
+}
+
+function toggleExpandedScore(){
+  fullArray = Array.from(document.querySelectorAll(".full-score"));
+  var expanded = document.querySelector("#score-box-expander").classList.contains("expanded");
+  if(expanded){
+    for(element of fullArray){
+      element.style.display = "none";
+    };
+    document.querySelector("#score-box-arrows").style.transform = "scaleY(1)";
+    document.querySelector("#score-box-expander").classList.remove("expanded");
+  } else{
+    for(element of fullArray){
+      element.style.display = "initial";
+    }
+    document.querySelector("#score-box-arrows").style.transform = "scaleY(-1)";
+    document.querySelector("#score-box-expander").classList.add("expanded");
   }
 }

@@ -1,29 +1,33 @@
-<DOCTYPE! html>
-    <html>
+<!DOCTYPE html>
+  <html>
 
-    <head>
-        <title> 500 </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./css/main.css">
-        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    </head>
+  <head>
+    <title> 500 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  </head>
 
-    <body>
-        <div id="main-container">
-            <div id="head-container">
-                <div id="title">
-                    The 500 Scorer
-                </div>
-                <img id="user"></img>
-            </div>
-            <div id="page">
+  <body>
+    <div id="main-container">
+      <div id="head-container">
+        <div id="title">
+          The 500 Scorer
+        </div>
+        <div id="icon-row">
+          <img id="save" class="icon" onclick="toggleMenu()"></img>
+          <img id="user" class="icon" onclick="toggleMenu()"></img>
+          <img id="settings" class="icon" onclick="toggleMenu()"></img>
+        </div>
+      </div>
+      <div id="page">
 
-            </div>
+      </div>
 
-            <script id="choose-bid-template" type="text/x-handlebars-template">
+      <script id="choose-bid-template" type="text/x-handlebars-template">
             <div class="question">
                 {{ordinalRound}} round of bidding
             </div>
@@ -34,11 +38,13 @@
                     {{player1}} & {{player2}}
                 </div>
                 {{/each}}
+                <div></div>
                 {{#each currentGame.hands}}
-                    <div class="full-score score-hand">{{ordinalRound}}</div>
+                    <div class="score-hand full-score">{{ordinalRound}}</div>
                     {{#each teams}}
-                    <div class="score-team-number">{{startingScore}}</div>
+                    <div class="score-team-number full-score">{{startingScore}}</div>
                     {{/each}}
+                    <div class="score-box-reverse full-score"><img class="score-box-reverse-icon" onclick="goToHand({{@index}})"></div>
                 {{/each}}
                 <div class="score-hand">{{ordinalRound}}</div>
                 {{#each currentGame.teams}}
@@ -46,7 +52,10 @@
                     {{score}}
                 </div>
                 {{/each}}
+                <div class="score-box-reverse">
+                </div>
             </div>
+            <div id="score-box-expander" onclick="toggleExpandedScore()"><img id="score-box-arrows"></div>
             <div class="question">
                 Who won the bid?
             </div>
@@ -79,9 +88,9 @@
             </div>
 		</script>
 
-            <script id="enter-tricks-template" type="text/x-handlebars-template">
-                
-			<div class="question">
+      <script id="enter-tricks-template" type="text/x-handlebars-template">
+
+        <div class="question">
                 {{ordinalRound}} round of bidding
             </div>
             <div id="score-box">
@@ -91,11 +100,13 @@
                     {{player1}} & {{player2}}
                 </div>
                 {{/each}}
+                <div></div>
                 {{#each currentGame.hands}}
-                    <div class="full-score score-hand">{{ordinalRound}}</div>
+                    <div class="score-hand full-score">{{ordinalRound}}</div>
                     {{#each teams}}
-                    <div class="score-team-number">{{startingScore}}</div>
+                    <div class="score-team-number full-score">{{startingScore}}</div>
                     {{/each}}
+                    <div class="score-box-reverse full-score"><img class="score-box-reverse-icon" onclick="goToHand({{@index}})"></div>
                 {{/each}}
                 <div class="score-hand">{{ordinalRound}}</div>
                 {{#each currentGame.teams}}
@@ -103,20 +114,26 @@
                     {{score}}
                 </div>
                 {{/each}}
+                <div class="score-box-reverse">
+                </div>
             </div>
-			{{#each currentGame.teams}}
-			<div class="question">
-				How many tricks did {{player1}} and {{player2}} get?
-			</div>
-			<input class="trick-input" type="number" onkeydown="validateIsNumber()" oninput="updateTricks()" data-id="{{@index}}">
-			{{/each}}
-			<div class="button" id="record-game-button" onclick="recordGame()">
-                Record Game
-            </div>
-		</script>
-
-            <script src="./js/main.js"></script>
+      <div id="score-box-expander" onclick="toggleExpandedScore()"><img id="score-box-arrows"></div>
+        {{#each currentGame.teams}}
+        <div class="question">
+        How many tricks did {{player1}} and {{player2}} get?
         </div>
-    </body>
+        <input class="trick-input" type="number" onkeydown="validateIsNumber()" oninput="updateTricks()" data-id="{{@index}}">
+        {{/each}}
+        <div class="button" id="record-game-button" onclick="recordGame()">
+          Record Game
+        </div>
+        </script>
+        <script id="menu-template" type="text/x-handlebars-template">
+          <div id="menu">Menu</div>
+        </script>
 
-    </html>
+      <script src="./js/main.js"></script>
+    </div>
+  </body>
+
+  </html>
