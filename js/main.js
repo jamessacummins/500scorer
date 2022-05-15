@@ -212,6 +212,13 @@ function insertHTML(sourceQuery, targetQuery, context) {
   document.querySelector(targetQuery).innerHTML += finalContent;
 };
 
+function createPartial(partialName, partialSelector){
+  var source = Handlebars.compile(document.querySelector(partialSelector).innerHTML);
+  Handlebars.registerPartial(partialName, source);
+};
+
+createPartial("score-box","#score-box-template");
+
 var hasMenu = false;
 function toggleMenu(){
   if(hasMenu){

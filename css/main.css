@@ -242,15 +242,15 @@ body {
 	font-size:10px;
 }
 
-#confirm-button{
+#confirm-button, #record-game-button{
 	width:50%;
 	margin:var(--padding-3) auto 0;
 
 	
-	background-color: #ddd;
+	background-color: var(--secondary-colour);
 }
 
-#confirm-button.active{
+#confirm-button.active, #record-game-button.active{
 	background-color: var(--main-colour);
 	color:white;
 }
@@ -260,17 +260,6 @@ input{
 	margin: var(--padding-3) auto;
 	padding:var(--padding-1) var(--padding-2);
 	text-align: center;
-}
-
-#record-game-button{
-	margin-top:var(--padding-3);
-	background-color: #ddd;
-	padding: var(--padding-1) var(--padding-2);
-}
-
-#record-game-button.active{
-	background-color: var(--main-colour);
-	color:white;
 }
 
 #menu {
