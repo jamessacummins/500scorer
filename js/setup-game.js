@@ -12,3 +12,29 @@ function startGame(){
     };
     updatePage("choose-bid-template");
 }
+
+function togglePlayerCount(playerCount){
+    var buttons = Array.from(document.querySelectorAll(".player-count-button"));
+    var nameQuestionContainer = document.querySelector("#name-container");
+    for(button of buttons){
+        if(button.dataset.playercount == playerCount){
+            button.classList.add("active");
+            data.playerCount = Number(button.dataset.playercount);
+            nameQuestionContainer.style.display = "flex";
+            overrideHTML("#name-questions","#name-container",data);
+        } else {
+            button.classList.remove("active");
+        }
+    }
+}
+
+function validateAllInputsFilled(){
+    var nameInputs = Array.from(document.querySelectorAll(".name-input"));
+    var allFilled = true;
+    for(nameInput of nameInputs){
+        allFilled = nameInput.value != "";
+    };
+    var setupGameButton = document.querySelector("#setup-game-button");
+    if(allFilled) setupGameButton.style.display = "initial";
+    else setupGameButton.style.display = "none";
+}
