@@ -1,22 +1,10 @@
 var newData = {
-  "currentPage": "choose-bid-template",
+  "currentPage": "welcome",
   "currentRound": 1,
   "currentHand": 0,
   "currentGame": {
     "gameID": null,
     "teams": [
-      {
-        "player1": "Jaadfasdfasmes",
-        "player2": "Harper",
-        "score": 0,
-        "currentTricks": 0
-      },
-      {
-        "player1": "Will",
-        "player2": "Catie",
-        "score": 0,
-        "currentTricks": 0
-      }
     ],
     "hands": []
   },
@@ -182,7 +170,7 @@ function saveState() {
 }
 
 function refreshState() {
-  data = newData;
+  data = JSON.parse(JSON.stringify(newData));;
   saveState();
   location.reload();
 }
@@ -317,7 +305,6 @@ function makeHand() {
   hand.ordinalRound = data.ordinalRound;
   for (team of data.currentGame.teams) {
     id = data.currentGame.teams.indexOf(team);
-    console.log(id);
     var handTeam = {};
     handTeam.teamID = id;
     handTeam.tricksWon = data.currentGame.teams[id].currentTricks;
@@ -427,5 +414,17 @@ function newGame() {
   var newGame = JSON.parse(JSON.stringify(newData));
   newData.pastGames.push(data.currentGame);
   data = newGame;
+  run();
+}
+function newGameSamePlayers() {
+  var newGame = JSON.parse(JSON.stringify(newData));
+  newGame.currentGame.teams = data.currentGame.teams;
+  newData.pastGames.push(data.currentGame);
+  data = newGame;
+  for(team of data.currentGame.teams){
+    team.currentTricks = null;
+    team.score = 0;
+  };
+  data.currentPage = "choose-bid-template";
   run();
 }
