@@ -7,6 +7,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" type="text/css" href="./css/main.css">
   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
@@ -136,13 +140,13 @@
       <div class="button refresh-button refresh-same-players-button" onclick="newGameSamePlayers()">new game with same players</div>
       <div class="button refresh-button refresh-completely-button" onclick="newGame()">new game with new players</div>
     </script>
-      <script id="welcome" type="text/x-handlebars-template">
+    <script id="welcome" type="text/x-handlebars-template">
         <link rel="stylesheet" type="text/css" href="./css/welcome.css">
         <div class="breadcrumb-title">welcome</div>
         <img src="./img/cards.svg" alt="" id="welcome-image" />
         <div class="button" onclick="handleWelcome()">new game</div>
       </script>
-      <script id="setup-game" type="text/x-handlebars-template">
+    <script id="setup-game" type="text/x-handlebars-template">
         <link rel="stylesheet" type="text/css" href="./css/setup-game.css">
         <div class="breadcrumb-title">setting up a new game</div>
         <div class="question">how many players?</div>
