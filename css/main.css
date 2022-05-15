@@ -103,6 +103,12 @@ body {
 	border: 1px solid #121212;
 	background-color: var(--secondary-colour);
 	display:grid;
+}
+
+.score-box-3-players{
+	grid-template-columns: auto auto auto auto auto;
+}
+.score-box-4-players{
 	grid-template-columns: auto auto auto auto;
 }
 

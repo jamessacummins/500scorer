@@ -200,6 +200,13 @@ function insertHTML(sourceQuery, targetQuery, context) {
   document.querySelector(targetQuery).innerHTML += finalContent;
 };
 
+function overrideHTML(sourceQuery, targetQuery, context) {
+  var source = document.querySelector(sourceQuery).innerHTML;
+  var template = Handlebars.compile(source);
+  var finalContent = template(context);
+  document.querySelector(targetQuery).innerHTML = finalContent;
+};
+
 function createPartial(partialName, partialSelector) {
   var source = Handlebars.compile(document.querySelector(partialSelector).innerHTML);
   Handlebars.registerPartial(partialName, source);
@@ -371,7 +378,7 @@ function recordGame() {
     var hand = makeHand();
     data.currentGame.hands.push(hand);
     updateScores(hand);
-    if (gameHasBeenWon(hand)) { winGame(hand) }
+    if (gameHasBeenWon(hand) || gameHasBeenLost(hand)) { winGame() }
     else { newHand(); };
   } else {
     window.alert("Please make sure there are ten tricks across all teams.");
@@ -396,30 +403,57 @@ function toggleExpandedScore() {
   }
 }
 
-function winGame(hand) {
+function winGame() {
   prepareNewHand();
-  data.currentGame.won = true;
-  data.currentGame.winningTeam = hand.bidWinningTeam;
   updatePage("win-template");
 }
 
 function gameHasBeenWon(hand) {
   if (hand.wasWon) {
-    return hand.teams[hand.bidWinningTeam].finalScore >= 500;
+    if(hand.teams[hand.bidWinningTeam].finalScore >= 500){
+      data.currentGame.wasWon = true;
+      data.currentGame.winningTeam = hand.bidWinningTeam;
+      return true;
+    }
+  }
+  return false;
+}
+
+function gameHasBeenLost(hand){
+
+  for(team of hand.teams){
+    if(team.finalScore <= -500){
+      var winningTeam = -1;
+      var winningScore = -1000;
+      for(team of hand.teams){
+        if(team.finalScore == winningScore){
+          winningTeam = -1;
+          winningScore = team.finalScore;
+        }
+        else if(team.finalScore > winningScore){
+          winningTeam = hand.teams.indexOf(team);
+          winningScore = team.finalScore;
+        }
+      };
+      data.currentGame.wasLost = true;
+      data.currentGame.winningTeam = winningTeam;
+      return true;
+    }
   }
   return false;
 }
 
 function newGame() {
-  var newGame = JSON.parse(JSON.stringify(newData));
   newData.pastGames.push(data.currentGame);
+  var newGame = JSON.parse(JSON.stringify(newData));
   data = newGame;
   run();
 }
 function newGameSamePlayers() {
+  newData.pastGames.push(data.currentGame);
   var newGame = JSON.parse(JSON.stringify(newData));
   newGame.currentGame.teams = data.currentGame.teams;
-  newData.pastGames.push(data.currentGame);
+  newGame.playerCount = data.playerCount;
   data = newGame;
   for(team of data.currentGame.teams){
     team.currentTricks = null;
