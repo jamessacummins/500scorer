@@ -50,7 +50,7 @@ body {
 
 #title{
 	font-weight:600;
-	color:#121212;
+	color:#000;
 	font-size:20px;
 	margin-left:var(--padding-3);
 }
@@ -77,27 +77,32 @@ body {
 	width:auto;
 }
 
+.breadcrumb-title{
+	width:100%;
+	text-align: center;
+	margin-top:var(--padding-3);
+	font-size:18px;
+	font-weight:600;
+
+}
 .question{
 	width:100%;
 	text-align: center;
 	margin-top:var(--padding-3);
-
-	font-weight:600;
+	font-weight:400;
 }
 
 #score-box{
 	width:calc(100% - calc(var(--padding-3) * 2));
 	margin: var(--padding-3) var(--padding-3) 0;
-	border: 2px solid var(--secondary-colour);
+	border: 1px solid #121212;
 	background-color: var(--secondary-colour);
 	display:grid;
-	grid-template-columns: 10fr 40fr 40fr auto;
+	grid-template-columns: auto auto auto auto;
 }
 
 #score-box-expander{
-	width:calc(100% - calc(var(--padding-3) * 2));
-	margin: 0 var(--padding-3);
-	border: 2px solid var(--secondary-colour);
+	grid-column: 1 / 5;
 	background-color: var(--secondary-colour);
 	display:flex;
 	align-items: center;
@@ -245,8 +250,8 @@ body {
 #confirm-button, #record-game-button{
 	width:50%;
 	margin:var(--padding-3) auto 0;
-
-	
+	border:none;
+	color:#888;
 	background-color: var(--secondary-colour);
 }
 

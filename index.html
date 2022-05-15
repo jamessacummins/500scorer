@@ -27,6 +27,7 @@
 
     </div>
     <script id="score-box-template" type="text/x-handlebars-template">
+        {{#ifNotEquals currentHand 0}}
         <div id="score-box">
           <div id="score-bid-title">Hand</div>
           {{#each currentGame.teams}}
@@ -35,26 +36,38 @@
           </div>
           {{/each}}
           <div></div>
+          <div class="score-hand full-score">Start</div>
+          {{#each currentGame.teams}}
+          <div class="score-team-number full-score">0</div>
+          {{/each}}
+          <div class="score-box-reverse full-score">
+            <img class="score-box-reverse-icon" onclick="goToHand(0)">
+          </div>
           {{#each currentGame.hands}}
+              {{#ifEquals @index ../lastHand }}
+              <div class="score-hand">{{ordinalRound}}</div>
+              {{#each teams}}
+              <div class="score-team-number">{{finalScore}}</div>
+              {{/each}}
+              <div class="score-box-reverse"></div>
+              {{/ifEquals}}
+              {{#ifNotEquals @index ../lastHand}}
               <div class="score-hand full-score">{{ordinalRound}}</div>
               {{#each teams}}
-              <div class="score-team-number full-score">{{startingScore}}</div>
+              <div class="score-team-number full-score">{{finalScore}}</div>
               {{/each}}
-              <div class="score-box-reverse full-score"><img class="score-box-reverse-icon" onclick="goToHand({{@index}})"></div>
+              <div class="score-box-reverse full-score">
+                <img class="score-box-reverse-icon" onclick="goToHand({{@index}})">
+              </div>
+              {{/ifNotEquals}}
           {{/each}}
-          <div class="score-hand">{{ordinalRound}}</div>
-          {{#each currentGame.teams}}
-          <div class="score-team-number">
-              {{score}}
-          </div>
-          {{/each}}
-          <div class="score-box-reverse">
-          </div>
+        
+          <div id="score-box-expander" onclick="toggleExpandedScore()"><img id="score-box-arrows"></div>
+          {{/ifNotEquals}}
       </div>
-      <div id="score-box-expander" onclick="toggleExpandedScore()"><img id="score-box-arrows"></div>
       </script>
     <script id="choose-bid-template" type="text/x-handlebars-template">
-            <div class="question">
+            <div class="breadcrumb-title">
                 {{ordinalRound}} round of bidding
             </div>
             {{> score-box }}
@@ -75,8 +88,11 @@
                 {{#each bids}}
                 <div class="bid-container" data-id="{{@index}}" onclick="updateActiveBid({{@index}})">
                     <div class="bid">
-                        {{trickThreshold}}
+                        {{#ifEquals suit "misere"}}
+                        Misere
+                        {{/ifEquals}}
                         {{#ifNotEquals suit "misere"}}
+                        {{trickThreshold}}
                         <img src="" alt="" class="bid-suit {{suit}}-bid">
                         {{/ifNotEquals}}
                     </div>
@@ -91,7 +107,7 @@
 		</script>
     <script id="enter-tricks-template" type="text/x-handlebars-template">
 
-        <div class="question">
+        <div class="breadcrumb-title">
                 {{ordinalRound}} round of bidding
             </div>
             {{> score-box}}
@@ -106,7 +122,20 @@
         </div>
     </script>
 
-
+    <script id="win-template" type="text/x-handlebars-template">
+      <link rel="stylesheet" type="text/css" href="./css/win.css">
+      {{#ifEquals currentGame.teams.length 2}}
+      {{#each currentGame.teams}}
+      {{#ifEquals @index ../currentGame.winningTeam}}
+      <div id="won-exclamation">{{player1}} and {{player2}} won!</div>
+      {{/ifEquals}}
+      {{/each}}
+      {{/ifEquals}}
+      <img src="/img/winners.svg" alt="" id="win-image">
+      {{> score-box}}
+      <div class="button refresh-button refresh-same-players-button">new game with same players</div>
+      <div class="button refresh-button refresh-completely-button" onclick="newGame()">new game with new players</div>
+    </script>
     <script id="new-game-template" type="text/x-handlebars-template">
       
     </script>

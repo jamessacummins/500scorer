@@ -3,164 +3,164 @@ var newData = {
   "currentRound": 1,
   "currentHand": 0,
   "currentGame": {
-      "gameID": null,
-      "teams": [
-          {
-        "player1": "James",
+    "gameID": null,
+    "teams": [
+      {
+        "player1": "Jaadfasdfasmes",
         "player2": "Harper",
         "score": 0,
         "currentTricks": 0
-          },
-          {
+      },
+      {
         "player1": "Will",
         "player2": "Catie",
         "score": 0,
         "currentTricks": 0
-          }
-      ],
-      "hands": []
+      }
+    ],
+    "hands": []
   },
   "ordinalRound": "",
   "pastGames": [],
   "bids": [
-      {
+    {
       "trickThreshold": 6,
       "suit": "spades",
       "value": 40
-      },
-      {
+    },
+    {
       "trickThreshold": 6,
       "suit": "clubs",
       "value": 60
-      },
-      {
+    },
+    {
       "trickThreshold": 6,
       "suit": "diamonds",
       "value": 80
-      },
-      {
+    },
+    {
       "trickThreshold": 6,
       "suit": "hearts",
       "value": 100
-      },
-      {
+    },
+    {
       "trickThreshold": 6,
       "suit": "no-trumps",
       "value": 120
-      },
-      {
+    },
+    {
       "trickThreshold": 7,
       "suit": "spades",
       "value": 140
-      },
-      {
+    },
+    {
       "trickThreshold": 7,
       "suit": "clubs",
       "value": 160
-      },
-      {
+    },
+    {
       "trickThreshold": 7,
       "suit": "diamonds",
       "value": 180
-      },
-      {
+    },
+    {
       "trickThreshold": 7,
       "suit": "hearts",
       "value": 200
-      },
-      {
+    },
+    {
       "trickThreshold": 7,
       "suit": "no-trumps",
       "value": 220
-      },
-      {
+    },
+    {
       "trickThreshold": 8,
       "suit": "spades",
       "value": 240
-      },
-      {
+    },
+    {
       "trickThreshold": 8,
       "suit": "clubs",
       "value": 260
-      },
-      {
+    },
+    {
       "trickThreshold": 8,
       "suit": "diamonds",
       "value": 280
-      },
-      {
+    },
+    {
       "trickThreshold": 8,
       "suit": "hearts",
       "value": 300
-      },
-      {
+    },
+    {
       "trickThreshold": 8,
       "suit": "no-trumps",
       "value": 320
-      },
-      {
+    },
+    {
       "trickThreshold": 9,
       "suit": "spades",
       "value": 340
-      },
-      {
+    },
+    {
       "trickThreshold": 9,
       "suit": "clubs",
       "value": 360
-      },
-      {
+    },
+    {
       "trickThreshold": 9,
       "suit": "diamonds",
       "value": 380
-      },
-      {
+    },
+    {
       "trickThreshold": 9,
       "suit": "hearts",
       "value": 400
-      },
-      {
+    },
+    {
       "trickThreshold": 9,
       "suit": "no-trumps",
       "value": 420
-      },
-      {
+    },
+    {
       "trickThreshold": 10,
       "suit": "spades",
       "value": 440
-      },
-      {
+    },
+    {
       "trickThreshold": 10,
       "suit": "clubs",
       "value": 460
-      },
-      {
+    },
+    {
       "trickThreshold": 10,
       "suit": "diamonds",
       "value": 480
-      },
-      {
+    },
+    {
       "trickThreshold": 10,
       "suit": "hearts",
       "value": 500
-      },
-      {
+    },
+    {
       "trickThreshold": 10,
       "suit": "no-trumps",
       "value": 520
-      },
-      {
-      "trickThreshold": "Misere",
+    },
+    {
+      "trickThreshold": "0",
       "suit": "misere",
       "value": 250
-      }
+    }
   ]
 }
 
-Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
-Handlebars.registerHelper('ifNotEquals', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifNotEquals', function (arg1, arg2, options) {
   return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
 });
 
@@ -212,19 +212,19 @@ function insertHTML(sourceQuery, targetQuery, context) {
   document.querySelector(targetQuery).innerHTML += finalContent;
 };
 
-function createPartial(partialName, partialSelector){
+function createPartial(partialName, partialSelector) {
   var source = Handlebars.compile(document.querySelector(partialSelector).innerHTML);
   Handlebars.registerPartial(partialName, source);
 };
 
-createPartial("score-box","#score-box-template");
+createPartial("score-box", "#score-box-template");
 
 var hasMenu = false;
-function toggleMenu(){
-  if(hasMenu){
+function toggleMenu() {
+  if (hasMenu) {
     document.querySelector("#menu").remove();
   } else {
-    insertHTML("#menu-template","#page",this);
+    insertHTML("#menu-template", "#page", this);
   }
   hasMenu = !hasMenu;
 };
@@ -285,7 +285,7 @@ function validateIsNumber() {
     //Prevent default action, which is inserting character
     if (e.preventDefault) e.preventDefault(); //normal browsers
     e.returnValue = false; //IE
-  } 
+  }
 }
 
 function updateTricks() {
@@ -296,13 +296,13 @@ function updateTricks() {
   }
   updateRecordGameButton();
 }
-function updateRecordGameButton(){
-    var recordGameButton = document.querySelector("#record-game-button");
-    if (tricksAddToTen()) {
-      recordGameButton.classList.add("active");
-    } else {
-      recordGameButton.classList.remove("active");
-    }
+function updateRecordGameButton() {
+  var recordGameButton = document.querySelector("#record-game-button");
+  if (tricksAddToTen()) {
+    recordGameButton.classList.add("active");
+  } else {
+    recordGameButton.classList.remove("active");
+  }
 }
 function makeHand() {
   var hand = {};
@@ -311,7 +311,7 @@ function makeHand() {
   hand.suit = bid.suit;
   hand.bid = data.activeBid;
   hand.bidWinningTeam = data.activeWinner;
-  hand.wasWon = data.currentGame.teams[data.activeWinner].currentTricks >= bid.trickThreshold;
+  hand.wasWon = hand.suit == "misere" ? data.currentGame.teams[data.activeWinner].currentTricks == 0 : data.currentGame.teams[data.activeWinner].currentTricks >= bid.trickThreshold;
   hand.teams = [];
   hand.value = bid.value;
   hand.ordinalRound = data.ordinalRound;
@@ -339,24 +339,30 @@ function updateScores(hand) {
     var id = data.currentGame.teams.indexOf(team);
     hand.teams[id].finalScore = data.currentGame.teams[id].score;
     if (hand.bidWinningTeam == id) {
-      if (hand.wasWon) { hand.teams[id].finalScore += hand.value; }
+      if(hand.suit == "misere" && hand.wasWon) hand.teams[id].finalScore += 250;
+      else if (hand.wasWon) { hand.teams[id].finalScore += 250 > hand.value && hand.teams[id].tricksWon == 10 ? 250 : hand.value; }
       else { hand.teams[id].finalScore += hand.value * -1; }
-    } else { hand.teams[id].finalScore += hand.teams[id].tricksWon * 10; }
-    team.score += hand.teams[id].finalScore;
+    } else { if(hand.suit != "misere") hand.teams[id].finalScore += hand.teams[id].tricksWon * 10; }
+    team.score = hand.teams[id].finalScore;
   }
 }
-function newHand() {
+function prepareNewHand() {
+  data.lastHand = data.currentHand;
   data.currentHand++;
   data.currentRound++;
   data.ordinalRound = ordinalSuffixOf(data.currentRound);
   data.activeBid = null;
   data.activeWinner = null;
+}
+function newHand() {
+  prepareNewHand();
   updatePage("choose-bid-template");
 }
 function goBack1Hand() {
   goToHand(data.currentGame.hands.length - 1);
 }
 function goToHand(handIndex) {
+  data.lastHand = handIndex - 1;
   data.currentHand = handIndex;
   data.currentRound = handIndex + 1;
   data.ordinalRound = ordinalSuffixOf(data.currentRound);
@@ -378,27 +384,48 @@ function recordGame() {
     var hand = makeHand();
     data.currentGame.hands.push(hand);
     updateScores(hand);
-    console.log(data);
-    newHand();
+    if (gameHasBeenWon(hand)) { winGame(hand) }
+    else { newHand(); };
   } else {
     window.alert("Please make sure there are ten tricks across all teams.");
   }
 }
 
-function toggleExpandedScore(){
+function toggleExpandedScore() {
   fullArray = Array.from(document.querySelectorAll(".full-score"));
   var expanded = document.querySelector("#score-box-expander").classList.contains("expanded");
-  if(expanded){
-    for(element of fullArray){
+  if (expanded) {
+    for (element of fullArray) {
       element.style.display = "none";
     };
     document.querySelector("#score-box-arrows").style.transform = "scaleY(1)";
     document.querySelector("#score-box-expander").classList.remove("expanded");
-  } else{
-    for(element of fullArray){
+  } else {
+    for (element of fullArray) {
       element.style.display = "initial";
     }
     document.querySelector("#score-box-arrows").style.transform = "scaleY(-1)";
     document.querySelector("#score-box-expander").classList.add("expanded");
   }
+}
+
+function winGame(hand) {
+  prepareNewHand();
+  data.currentGame.won = true;
+  data.currentGame.winningTeam = hand.bidWinningTeam;
+  updatePage("win-template");
+}
+
+function gameHasBeenWon(hand) {
+  if (hand.wasWon) {
+    return hand.teams[hand.bidWinningTeam].finalScore >= 500;
+  }
+  return false;
+}
+
+function newGame() {
+  var newGame = JSON.parse(JSON.stringify(newData));
+  newData.pastGames.push(data.currentGame);
+  data = newGame;
+  run();
 }
