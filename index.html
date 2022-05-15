@@ -124,6 +124,19 @@
         <div class="breadcrumb-title">
                 {{ordinalRound}} round of bidding
             </div>
+        <div class="breadcrumb-title">
+        {{#each currentGame.teams}}
+        {{#ifEquals @index ../activeWinner}}
+          {{#ifEquals ../playerCount 4}}
+          {{players.[0].name}} and {{players.[1].name}} bid
+          {{/ifEquals}}
+          {{#ifEquals ../playerCount 3}}
+          {{players.[0].name}} bid 
+          {{/ifEquals}}
+        {{/ifEquals}}
+        {{/each}}
+        {{#each bids}}{{#ifEquals @index ../activeBid}}{{trickThreshold}} {{suit}}{{/ifEquals}}{{/each}}
+        </div>
             {{> score-box}}
         {{#each currentGame.teams}}
         <div class="question">

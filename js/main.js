@@ -447,6 +447,7 @@ function newGame() {
   newData.pastGames.push(data.currentGame);
   var newGame = JSON.parse(JSON.stringify(newData));
   data = newGame;
+  data.currentPage = "setup-game";
   run();
 }
 function newGameSamePlayers() {
