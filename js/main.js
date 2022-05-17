@@ -1,147 +1,151 @@
-var newData = {
-  "currentPage": "welcome",
-  "currentRound": 1,
-  "currentHand": 0,
-  "currentGame": {
-    "gameID": null,
-    "teams": [
-    ],
-    "hands": []
-  },
-  "ordinalRound": "",
-  "pastGames": [],
-  "bids": [
-    {
-      "trickThreshold": 6,
-      "suit": "spades",
-      "value": 40
+function returnNewData() {
+  var newData = {
+    "version": 1.0,
+    "currentPage": "welcome",
+    "currentRound": 1,
+    "currentHand": 0,
+    "currentGame": {
+      "gameID": null,
+      "teams": [
+      ],
+      "hands": []
     },
-    {
-      "trickThreshold": 6,
-      "suit": "clubs",
-      "value": 60
-    },
-    {
-      "trickThreshold": 6,
-      "suit": "diamonds",
-      "value": 80
-    },
-    {
-      "trickThreshold": 6,
-      "suit": "hearts",
-      "value": 100
-    },
-    {
-      "trickThreshold": 6,
-      "suit": "no-trumps",
-      "value": 120
-    },
-    {
-      "trickThreshold": 7,
-      "suit": "spades",
-      "value": 140
-    },
-    {
-      "trickThreshold": 7,
-      "suit": "clubs",
-      "value": 160
-    },
-    {
-      "trickThreshold": 7,
-      "suit": "diamonds",
-      "value": 180
-    },
-    {
-      "trickThreshold": 7,
-      "suit": "hearts",
-      "value": 200
-    },
-    {
-      "trickThreshold": 7,
-      "suit": "no-trumps",
-      "value": 220
-    },
-    {
-      "trickThreshold": 8,
-      "suit": "spades",
-      "value": 240
-    },
-    {
-      "trickThreshold": 8,
-      "suit": "clubs",
-      "value": 260
-    },
-    {
-      "trickThreshold": 8,
-      "suit": "diamonds",
-      "value": 280
-    },
-    {
-      "trickThreshold": 8,
-      "suit": "hearts",
-      "value": 300
-    },
-    {
-      "trickThreshold": 8,
-      "suit": "no-trumps",
-      "value": 320
-    },
-    {
-      "trickThreshold": 9,
-      "suit": "spades",
-      "value": 340
-    },
-    {
-      "trickThreshold": 9,
-      "suit": "clubs",
-      "value": 360
-    },
-    {
-      "trickThreshold": 9,
-      "suit": "diamonds",
-      "value": 380
-    },
-    {
-      "trickThreshold": 9,
-      "suit": "hearts",
-      "value": 400
-    },
-    {
-      "trickThreshold": 9,
-      "suit": "no-trumps",
-      "value": 420
-    },
-    {
-      "trickThreshold": 10,
-      "suit": "spades",
-      "value": 440
-    },
-    {
-      "trickThreshold": 10,
-      "suit": "clubs",
-      "value": 460
-    },
-    {
-      "trickThreshold": 10,
-      "suit": "diamonds",
-      "value": 480
-    },
-    {
-      "trickThreshold": 10,
-      "suit": "hearts",
-      "value": 500
-    },
-    {
-      "trickThreshold": 10,
-      "suit": "no-trumps",
-      "value": 520
-    },
-    {
-      "trickThreshold": "0",
-      "suit": "misere",
-      "value": 250
-    }
-  ]
+    "ordinalRound": "",
+    "pastGames": [],
+    "bids": [
+      {
+        "trickThreshold": 6,
+        "suit": "spades",
+        "value": 40
+      },
+      {
+        "trickThreshold": 6,
+        "suit": "clubs",
+        "value": 60
+      },
+      {
+        "trickThreshold": 6,
+        "suit": "diamonds",
+        "value": 80
+      },
+      {
+        "trickThreshold": 6,
+        "suit": "hearts",
+        "value": 100
+      },
+      {
+        "trickThreshold": 6,
+        "suit": "no-trumps",
+        "value": 120
+      },
+      {
+        "trickThreshold": 7,
+        "suit": "spades",
+        "value": 140
+      },
+      {
+        "trickThreshold": 7,
+        "suit": "clubs",
+        "value": 160
+      },
+      {
+        "trickThreshold": 7,
+        "suit": "diamonds",
+        "value": 180
+      },
+      {
+        "trickThreshold": 7,
+        "suit": "hearts",
+        "value": 200
+      },
+      {
+        "trickThreshold": 7,
+        "suit": "no-trumps",
+        "value": 220
+      },
+      {
+        "trickThreshold": 8,
+        "suit": "spades",
+        "value": 240
+      },
+      {
+        "trickThreshold": 8,
+        "suit": "clubs",
+        "value": 260
+      },
+      {
+        "trickThreshold": 8,
+        "suit": "diamonds",
+        "value": 280
+      },
+      {
+        "trickThreshold": 8,
+        "suit": "hearts",
+        "value": 300
+      },
+      {
+        "trickThreshold": 8,
+        "suit": "no-trumps",
+        "value": 320
+      },
+      {
+        "trickThreshold": 9,
+        "suit": "spades",
+        "value": 340
+      },
+      {
+        "trickThreshold": 9,
+        "suit": "clubs",
+        "value": 360
+      },
+      {
+        "trickThreshold": 9,
+        "suit": "diamonds",
+        "value": 380
+      },
+      {
+        "trickThreshold": 9,
+        "suit": "hearts",
+        "value": 400
+      },
+      {
+        "trickThreshold": 9,
+        "suit": "no-trumps",
+        "value": 420
+      },
+      {
+        "trickThreshold": 10,
+        "suit": "spades",
+        "value": 440
+      },
+      {
+        "trickThreshold": 10,
+        "suit": "clubs",
+        "value": 460
+      },
+      {
+        "trickThreshold": 10,
+        "suit": "diamonds",
+        "value": 480
+      },
+      {
+        "trickThreshold": 10,
+        "suit": "hearts",
+        "value": 500
+      },
+      {
+        "trickThreshold": 10,
+        "suit": "no-trumps",
+        "value": 520
+      },
+      {
+        "trickThreshold": "0",
+        "suit": "misere",
+        "value": 250
+      }
+    ]
+  };
+  return newData;
 }
 
 Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
@@ -155,8 +159,17 @@ Handlebars.registerHelper('ifNotEquals', function (arg1, arg2, options) {
 var data;
 
 window.onload = () => {
-  if (localStorage.data == null) data = newData;
-  else data = JSON.parse(localStorage.data);
+  if (localStorage.data == null) data = returnNewData();
+  else {
+    var localData = JSON.parse(localStorage.data);
+    var freshData = returnNewData();
+    if(typeof(localData.version) == "undefined" || localData.version != freshData.version){
+      data = freshData;
+      saveState();
+    } else {
+      data = localData;
+    }
+  };
   run();
 }
 
@@ -169,8 +182,9 @@ function saveState() {
   localStorage.data = JSON.stringify(data);
 }
 
+
 function refreshState() {
-  data = JSON.parse(JSON.stringify(newData));;
+  data = returnNewData();
   saveState();
   location.reload();
 }
@@ -333,10 +347,10 @@ function updateScores(hand) {
     var id = data.currentGame.teams.indexOf(team);
     hand.teams[id].finalScore = data.currentGame.teams[id].score;
     if (hand.bidWinningTeam == id) {
-      if(hand.suit == "misere" && hand.wasWon) hand.teams[id].finalScore += 250;
+      if (hand.suit == "misere" && hand.wasWon) hand.teams[id].finalScore += 250;
       else if (hand.wasWon) { hand.teams[id].finalScore += 250 > hand.value && hand.teams[id].tricksWon == 10 ? 250 : hand.value; }
       else { hand.teams[id].finalScore += hand.value * -1; }
-    } else { if(hand.suit != "misere") hand.teams[id].finalScore += hand.teams[id].tricksWon * 10; }
+    } else { if (hand.suit != "misere") hand.teams[id].finalScore += hand.teams[id].tricksWon * 10; }
     team.score = hand.teams[id].finalScore;
   }
 }
@@ -410,7 +424,7 @@ function winGame() {
 
 function gameHasBeenWon(hand) {
   if (hand.wasWon) {
-    if(hand.teams[hand.bidWinningTeam].finalScore >= 500){
+    if (hand.teams[hand.bidWinningTeam].finalScore >= 500) {
       data.currentGame.wasWon = true;
       data.currentGame.winningTeam = hand.bidWinningTeam;
       return true;
@@ -419,18 +433,18 @@ function gameHasBeenWon(hand) {
   return false;
 }
 
-function gameHasBeenLost(hand){
+function gameHasBeenLost(hand) {
 
-  for(team of hand.teams){
-    if(team.finalScore <= -500){
+  for (team of hand.teams) {
+    if (team.finalScore <= -500) {
       var winningTeam = -1;
       var winningScore = -1000;
-      for(team of hand.teams){
-        if(team.finalScore == winningScore){
+      for (team of hand.teams) {
+        if (team.finalScore == winningScore) {
           winningTeam = -1;
           winningScore = team.finalScore;
         }
-        else if(team.finalScore > winningScore){
+        else if (team.finalScore > winningScore) {
           winningTeam = hand.teams.indexOf(team);
           winningScore = team.finalScore;
         }
@@ -444,19 +458,20 @@ function gameHasBeenLost(hand){
 }
 
 function newGame() {
-  newData.pastGames.push(data.currentGame);
-  var newGame = JSON.parse(JSON.stringify(newData));
+  var newGame = returnNewData();
+  newGame.pastGames.push(data.currentGame);
   data = newGame;
   data.currentPage = "setup-game";
   run();
 }
+
 function newGameSamePlayers() {
-  newData.pastGames.push(data.currentGame);
-  var newGame = JSON.parse(JSON.stringify(newData));
+  var newGame = returnNewData();
+  newGame.pastGames.push(data.currentGame);
   newGame.currentGame.teams = data.currentGame.teams;
   newGame.playerCount = data.playerCount;
   data = newGame;
-  for(team of data.currentGame.teams){
+  for (team of data.currentGame.teams) {
     team.currentTricks = null;
     team.score = 0;
   };
