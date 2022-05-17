@@ -175,7 +175,7 @@ window.onload = () => {
 
 function run() {
   updateOrdinalRound();
-  loadPage("#" + data.currentPage);
+  updatePage(data.currentPage);
 }
 
 function saveState() {
