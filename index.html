@@ -21,15 +21,30 @@
       <div id="title">
         The 500 Scorer
       </div>
-      <div id="icon-row">
-        <img id="save" class="icon" onclick="toggleMenu()"></img>
+      <div id="icon-row" >
+        <img id="save" class="icon" onclick="toggleMenu('#save-menu')"></img>
+        <!--
         <img id="user" class="icon" onclick="toggleMenu()"></img>
         <img id="settings" class="icon" onclick="toggleMenu()"></img>
+        -->
       </div>
     </div>
     <div id="page">
 
     </div>
+    <script id="save-menu-template" type="text/x-handlebars-template">
+      <div id="menu-black-out"></div>
+      <div id="save-menu" class="menu">
+        <a class="menu-item" onclick="newGame()">
+          new game with new players
+        </a>
+        {{#ifNotEquals currentPage "setup-game"}}
+        <a class="menu-item" onclick="newGameSamePlayers()">
+          new game with same players
+        </a>
+        {{/ifNotEquals}}
+      </div>
+    </script>
     <script id="score-box-template" type="text/x-handlebars-template">
         {{#ifNotEquals currentHand 0}}
         <div id="score-box" class="score-box-{{playerCount}}-players">
@@ -76,6 +91,7 @@
       </div>
       </script>
     <script id="choose-bid-template" type="text/x-handlebars-template">
+            {{>  save-menu }}
             <div class="breadcrumb-title">
                 {{ordinalRound}} round of bidding
             </div>
@@ -120,7 +136,7 @@
             </div>
 		</script>
     <script id="enter-tricks-template" type="text/x-handlebars-template">
-
+      {{>  save-menu}}
         <div class="breadcrumb-title">
                 {{ordinalRound}} round of bidding
             </div>

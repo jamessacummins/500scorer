@@ -282,12 +282,34 @@ input{
 	text-align: center;
 }
 
-#menu {
-	background-color: var(--main-colour);
-	width:100%;
-	position: absolute;
-}
+
 
 .full-score{
 	display:none;
+}
+
+#menu-black-out{
+	display:none;
+	position: absolute;
+	width:100%;
+	height:100%;
+	background-color: #00000044;
+}
+.menu {
+	display:none;
+	background-color: var(--main-colour);
+	width:100%;
+	position: absolute;
+	flex-direction: column;
+}
+.menu-item{
+	width:100%;
+	color:white;
+	font-weight: 500;
+	font-size: 20px;
+	padding:var(--padding-3) var(--padding-2);
+	text-align: center;
+
+	cursor:pointer;
+	user-select: none;
 }

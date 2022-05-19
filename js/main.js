@@ -227,17 +227,21 @@ function createPartial(partialName, partialSelector) {
 };
 
 createPartial("score-box", "#score-box-template");
+createPartial("save-menu", "#save-menu-template");
 
-var hasMenu = false;
-function toggleMenu() {
-  if (hasMenu) {
-    document.querySelector("#menu").remove();
+function toggleFlexElement(elementQuery) {
+  let el = document.querySelector(elementQuery);
+  if (el.style.display == "" || el.style.display == "none") {
+    el.style.display = "flex"; 
   } else {
-    insertHTML("#menu-template", "#page", this);
+    el.style.display = "none";
   }
-  hasMenu = !hasMenu;
 };
 
+function toggleMenu(menuQuery){
+  toggleFlexElement("#menu-black-out");
+  toggleFlexElement(menuQuery);
+}
 function updatePage(page) {
   data.currentPage = page;
   loadPage("#" + page);
